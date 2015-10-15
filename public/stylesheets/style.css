@@ -1,17 +1,11 @@
-body {
-  padding: 50px;
+html, body {
+  height: 100%
 }
 
 .key {
   height: 150px;
-  width: 70px;
-  border: 1px solid black;
-  display: inline-block;
+  margin: 5px;
+  border: 1px solid gray;
   text-align: center;
-}
-
-.xylophone {
-  margin: 0 auto;
-  width: 90%;
-  text-align: center;
+  vertical-align: middle;
 }
