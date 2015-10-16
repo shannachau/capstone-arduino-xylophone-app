@@ -1,7 +1,21 @@
 doctype html
 html
   head
-    title= title
+    title= XYLOBOT
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css')
   body
+    nav
+      div.nav-wrapper
+        a.brand-logo.center(href='/') XYLOBOT
+        ul#nav-mobile.right
+          li 
+            a(href='/tutorial') Tutorial
+          li
+            a(href='/about') About
+  
     block content
+    
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+    script(src='https://cdn.socket.io/socket.io-1.3.7.js')
+    script(src='javascripts/main.js')
