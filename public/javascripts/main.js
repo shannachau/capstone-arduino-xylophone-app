@@ -1,65 +1,27 @@
 $(function(){
   var socket = io.connect('http://localhost:8081');
 
-  $('.a').click(function(){
-    socket.emit('servo2', 'this is a test');
-    console.log('Moving servo2');
-  });
+  function keyPressOrClick(servo, keyCode, element){
+    $(document).on('keypress', function(event){
+      if (event.keyCode == keyCode){
+        socket.emit(servo, 'this is a test');
+      }
+      console.log('Moving ' + servo);
+    });
 
-  $('.s').click(function(){
-    socket.emit('servo3', 'this is a test');
-    console.log('Moving servo3');
+    $(element).on('click', function(){
+      socket.emit(servo, 'this is a test');
+      console.log('Moving ' + servo);
+    })
+  }
 
-  });
+  keyPressOrClick('servo2', 49, '.a');
+  keyPressOrClick('servo3', 50, '.s');
+  keyPressOrClick('servo4', 51, '.d');
+  keyPressOrClick('servo5', 52, '.f');
+  keyPressOrClick('servo6', 53, '.g');
+  keyPressOrClick('servo8', 54, '.h');
+  keyPressOrClick('servo9', 55, '.j');
+  keyPressOrClick('servo10', 56, '.k');
 
-  $('.d').click(function(){
-    socket.emit('servo4', 'this is a test');
-    console.log('Moving servo4');
-
-  });
-
-  $('.f').click(function(){
-    socket.emit('servo5', 'this is a test');
-    console.log('Moving servo5');
-
-  });
-
-  $('.g').click(function(){
-    socket.emit('servo6', 'this is a test');
-    console.log('Moving servo6');
-
-  });
-
-  $('.h').click(function(){
-    socket.emit('servo8', 'this is a test');
-    console.log('Moving servo8');
-
-  });
-
-  $('.j').click(function(){
-    socket.emit('servo9', 'this is a test');
-    console.log('Moving servo9');
-
-  });
-
-  $('.k').click(function(){
-    socket.emit('servo10', 'this is a test');
-    console.log('Moving servo10');
-
-  });
-  //
-  // clickKey('a');
-  // clickKey('s');
-  // clickKey('d');
-  // clickKey('f');
-  // clickKey('g');
-  // clickKey('h');
-  // clickKey('j');
-  // clickKey('k');
-
-  // function clickKey(key){
-  //   $('.' + key).click(function(){
-  //     socket.emit(key, 'Move servo' + key);
-  //   });
-  // }
 });
