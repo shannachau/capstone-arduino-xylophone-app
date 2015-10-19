@@ -5,6 +5,8 @@ $(function(){
     $(document).on('keypress', function(event){
       if (event.keyCode == keyCode){
         socket.emit('moveServo', servo);
+
+        expandAnimation(element);
       }
       console.log('Moving ' + servo);
     });
@@ -12,7 +14,18 @@ $(function(){
     $(element).on('click', function(){
       socket.emit('moveServo', servo);
       console.log('Moving ' + servo);
+
+      expandAnimation(element);
     })
+  }
+
+  function expandAnimation(element){
+    $(element).addClass('expand');
+    $(element).removeClass('lighten-1');
+    $(element).on('animationend', function(){
+      $(element).removeClass('expand');
+      $(element).addClass('lighten-1');
+    });
   }
 
   keyPressOrClick('Servo2', 49, '.a');
