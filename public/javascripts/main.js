@@ -5,7 +5,6 @@ $(function(){
     $(document).on('keypress', function(event){
       if (event.keyCode == keyCode){
         socket.emit('moveServo', servo);
-
         expandAnimation(element);
       }
       console.log('Moving ' + servo);
@@ -13,9 +12,8 @@ $(function(){
 
     $(element).on('click', function(){
       socket.emit('moveServo', servo);
-      console.log('Moving ' + servo);
-
       expandAnimation(element);
+      console.log('Moving ' + servo);
     })
   }
 
