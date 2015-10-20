@@ -2,6 +2,10 @@ main {
   padding-left: 240px;
 }
 
+.xylophone {
+  padding-top: 50px;
+}
+
 /* removing padding when side-nav bar is not displayed */
 @media only screen and (max-width: 992px) {
   main {
