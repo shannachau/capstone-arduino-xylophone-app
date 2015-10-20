@@ -1,21 +1,24 @@
-html, body {
-  height: 100%;
+main {
+  padding-left: 240px;
 }
 
-.valign-wrapper {
-  height: 100%;
+/* removing padding when side-nav bar is not displayed */
+@media only screen and (max-width: 992px) {
+  main {
+    padding-left: 0;
+  }
 }
 
 .key {
-  height: 250px;
-  margin: 5px;
-  text-align: center;
-  vertical-align: middle;
+  height: 450px;
+  width: 12.5%;
+  float: left;
 }
 
 .key p {
   font-size: 20px;
   margin: auto;
+  color: black;
 }
 
 .key.expand {

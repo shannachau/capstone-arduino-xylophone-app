@@ -2,6 +2,7 @@ $(function(){
   // connect to server
   var socket = io.connect('http://localhost:8081');
 
+
   // emits an event to server if key is clicked or triggered by keypress
   function keyPressOrClick(servo, keyCode, element){
     $(document).on('keypress', function(event){
@@ -53,17 +54,19 @@ $(function(){
 
   var maryHadLamb = [3,2,1,2,3,3,3,2,2,2,3,5,5,3,2,1,2,3,3,3,3,2,2,3,2,1];
 
-  var song = maryHadLamb;
+  function playSong(song){
+    // setting 1000 ms delay while shifting through array
+    var loopSong = setInterval(function(){
+      // calling keyPressOrClick function
+      numToKey[song.shift()]();
 
-  // setting 1000 ms delay while shifting through array
-  var loopSong = setInterval(function(){
-    numToKey[song.shift()]();
+      // stop the loop once you have looped through entire array
+      if (song.length == 0){
+        clearInterval(loopSong);
+      }
+    }, 1000);
+  }
 
-    // stop the loop once you have looped through entire array
-    if (song.length == 0){
-      clearInterval(loopSong);
-      // song = maryHadLamb;
-    }
-  }, 1000);
+
 
 });
