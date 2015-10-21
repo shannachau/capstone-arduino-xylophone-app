@@ -13,7 +13,7 @@ main {
   }
 }
 
-.key {
+.btn.key {
   height: 450px;
   width: 12.5%;
   float: left;
