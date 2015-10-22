@@ -1,7 +1,6 @@
 $(function(){
   // connect to server
   var socket = io.connect('http://localhost:8081');
-  console.log(socket);
 
   // emits an event to server if key is clicked or triggered by keypress
   function keyPressOrClick(servo, keyCode, element){
@@ -38,8 +37,6 @@ $(function(){
   keyPressOrClick('Servo8', 54, '.h');
   keyPressOrClick('Servo9', 55, '.j');
   keyPressOrClick('Servo10', 56, '.k');
-
-
 
   // mapping integers to keyPressorClick function to easily program songs
   var numToKey = {};
