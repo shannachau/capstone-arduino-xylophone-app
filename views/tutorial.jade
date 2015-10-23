@@ -118,6 +118,38 @@ block content
       li.collection-item 
         p Unplug your Arduino. Then, plug the remaining servos into ports 2, 3, 4, 6, 8, 9, and 10.
         
-      
+    
+    h3 Repo Set-Up
+    
+    ol.collection
+      li.collection-item
+        p Clone these two repos to your local machine. The main files are commented if you want to have a better understanding of what the code is doing. 
+          
+        a(href='https://github.com/shannachau/capstone-arduino-xylophone') Arduino 
+        p This repo holds the code to create a server that you will be running on your local machine. This server will relay information from the web application to your Arduino. 
+          
+        a(href='https://github.com/shannachau/capstone-arduino-xylophone-server') Server
+        p This repo holds the code that will program your Arduino to listen to specific events in order to trigger the appropriate servos. 
+      li.collection-item
+        p #[em Optional] If you have a xylophone with more than 8 keys, you’ll want to also clone this repo for the web app and modify as necessary. You can add additional keys on index.jade and make changes to main.js. 
+        a(href='https://github.com/shannachau/capstone-arduino-xylophone-app') Web app
+        p You can add additional xylophone keys to display in index.jade. You will also need to make changes to main.js.
+      li.collection-item
+        p Go into the directory where you have the server repo. Run #[code $ npm install] in your terminal to install required modules.  To get the program started, run #[code $ npm start] in your terminal. You should see something like this: 
+        p SCREENSHOT OF TERMINAL
+        p Keep this tab in your terminal running.
+      li.collection-item
+        p Now that the server is up and running, you can get your Arduino started. Plug your Arduino back into the same USB port as before. Again, go to the directory where you have the Arduino repo, run #[code $ npm install], and run #[code $ npm start]. You should see something like this: 
+        p SCREENSHOT OF TERMINAL
+        p Back in your tab for the server, you should see a message that someone is on the port. 
+      li.collection-item
+        p Return to #[a(href='') this] page and click away! 
       
     
+    h3 Building the Rig
+    
+    ol.collection
+      li.collection-item
+        p Now you’ll need to make some kind of rig around your xylophone to mount the servos to. You can really use any materials you like that are reasonably rigid. 
+      li.collection-item
+        p Mounting the servos onto your rig will take some tinkering around to get them at the right angle. I went through each servo and held them over the xylophone keys and triggered them to figure out the optimal angle. 
