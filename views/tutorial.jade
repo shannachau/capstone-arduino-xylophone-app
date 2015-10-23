@@ -13,75 +13,111 @@ block content
     
     h3 VIDEO/DEMO HERE
     
+    
     h3 Materials 
     
-    .row
-      .col.s6
-        .card.medium
-          .card-image
-            img(src='/images/corgi.jpg')
-          .card-content
-            span.card-title.grey-text.text-darken-4 Arduino UNO board
-              i.material-icons.right more_vert
-            p     
-              a(href='http://store-usa.arduino.cc/products/a000066') Specs
-        
-        
+    p I purchased almost all my materials from Amazon because of convenience. I knew that they'd deliver quickly and if anything was damaged, I could easily return. For hardware, Adafruit is also a great place to go. The total cost for everything was around 
     
     ul.collapsible.popout(data-collapsible='accordian')
       li
         .collapsible-header Arduino Uno board
           i.material-icons.right expand_more
         .collapsible-body
-          p TESTING IF THIS WORKS
+          img.materials(src='images/corgi.jpg')
+          p Amazon - $20
       li
         .collapsible-header Sensor shield for Arduino Uno
           i.material-icons.right expand_more
         .collapsible-body
-          p TESTING IF THIS WORKS
+          p This allows you to plug your servos directly onto the shield without having to worry about creating your own circuits on a breadboard and supplying additional power. The model I purchased was the SainSmart Digital Analog  Module V5 Sensor Shield. Just make sure the one your purchase is compatiable with the Arduino UNO. Also keep in mind that this shield only has enough ports for 12 servos. If you're planning to use a larger xylophone, you may need an additional Arduino and shield. 
+          p Amazon - $15
       li
         .collapsible-header 8x Servo motors
           i.material-icons.right expand_more
         .collapsible-body
-          p TESTING IF THIS WORKS
+          p You will need one per key on your xylophone. I purchased micro 9g hobby servos that came in a pack of 10.
+          p Amazon - $20
       li
-        .collapsible-header Female to male extender cords (optional)
+        .collapsible-header Female to male servo extension cords (optional)
           i.material-icons.right expand_more
         .collapsible-body
-          p TESTING IF THIS WORKS
+          p Though optional, you may need them so that your servos can reach from your Arduino all the way to the end of the xylophone.
+          p Amazon - $5
       li
         .collapsible-header Xylophone
           i.material-icons.right expand_more
         .collapsible-body
-          p TESTING IF THIS WORKS
+          p I bought a cheap xylophone made for children with 8 keys. If you want to play a wider range of music, you can purchase a xylophone with more keys and modify the code as necessary. Again, keep in mind the port limitations on the shield. 
+          p Amazon - $15
       li
         .collapsible-header Popsicle sticks
           i.material-icons.right expand_more
         .collapsible-body
-          p TESTING IF THIS WORKS
+          p I just picked these up at a craft store. You definitely don't need to use popsicle sticks for your rig, but I chose to use them because they were easy to configure to whatever size I needed and easy to assemble. A light wood or even cardboard would work.
+          p Joanne's - $6
       li
         .collapsible-header 8x Wooden coffee stir sticks
           i.material-icons.right expand_more
         .collapsible-body
-          p TESTING IF THIS WORKS
+          p You will need something fairly light. Disposable chopsticks or light wooden dowels would work perfectly fine also. 
+          p 'Borrowed' from a coffee shop - $0
       li
         .collapsible-header 8x Small metal washers
           i.material-icons.right expand_more
         .collapsible-body
-          p TESTING IF THIS WORKS
+          p These will be attached to the end of the stir sticks to make contact with the xylophone. Any other kind of small metal object would suffice.
+          p Home Depot - $1
       li
         .collapsible-header Hot glue gun
           i.material-icons.right expand_more
         .collapsible-body
-          p TESTING IF THIS WORKS
+          p Glues everything together and no need to wait a long time for everything to dry.
+          p Joanne's - $10
+          
+          
+    h3 Arduino Set-Up
     
-    ul.collection
-      li.collection-item Arduino Uno board
-      li.collection-item Sensor shield for Arduino Uno
-      li.collection-item 8x Servo motors
-      li.collection-item Female to male extender cords (optional)
-      li.collection-item Xylophone
-      li.collection-item Popsicle sticks
-      li.collection-item 8x Wooden coffee stir sticks
-      li.collection-item 8x Small metal washers
-      li.collection-item Hot glue gun
+    ol.collection
+      li.collection-item
+        p First, you’ll want to make sure your Arduino board is in working order. Download and install the Arduino Software (IDE) from #[a(href='https://www.arduino.cc/en/Main/Software') here]. 
+      li.collection-item
+        p Once installed, open up the software and navigate to File > Examples > Blink. A new window will open up with the Blink Sketch. Click the upload button. If the red LED button is blinking on your Arduino board, then yay this means your board works! 
+        em Troubleshooting: If you have trouble getting your sketch to upload, check to see if you have the correct port selected by going to Tools > Port. For me, mine was: FILL IN LATER.
+      li.collection-item
+        p Now, navigate to File > Examples > Firmata > StandardFirmata. Upload this sketch onto the Arduino. This is a special protocol that will enable you to use the Johnny-Five framework. 
+      li.collection-item
+        p Next, unplug the Arduino. You’ll need to connect the sensor shield on top of your Arduino board.  Line up the pins on the bottom of the sensor to the ports on the sides of the Arduino. Lining up the pins may take some jiggling around. If some pins are a little bent, just bend them back gently to straighten them out. 
+      
+      
+    h3 Servo Set-Up
+    
+    ol.collection
+      li.collection-item
+        p Generally, most servos have a range of motion from 0-180 degrees. However, this will vary slightly servo to servo, so it’s a good idea to test them. Some may also move a little faster than others.
+      li.collection-item
+        p Locate pin number 2 on the sensor shield. It should have three pins in a column labeled GVS (ground, voltage, signal). The ground wire on your servo is typically black or brown. The voltage wire is usually red or orange. The signal wire is usually white or yellow. Line up the corresponding pins and wires and plug in your servo.
+      li.collection-item
+        p Now we are ready to write a small Johnny-Five program to test our servo. Follow the commands below inside your terminal. If you have Node.js already installed, skip the first command. If you're not sure if you do, you can check by using #[code $ node -v]. 
+        
+        code.block $ mkdir test-servo
+        code.block $ cd test-servo
+        code.block $ touch servo.js
+        code.block $ npm install johnny-five
+      li.collection-item
+        p Open servo.js and input the following code:
+        
+        code.block var five = require('johnny-five');
+        code.block board = new five.Board();
+        code.block board.on('ready', function(){
+        code.block &nbsp; var myServo = new five.Servo(2);
+        code.block &nbsp; myServo.sweep();
+        code.block });
+      li.collection-item
+        p Plug your Arduino back in. In your terminal run your code by executing #[code $ node servo.js]. Your servo should sweep back and forth between 0 and 180 degrees. You can exit the program with CTRL+C. 
+        em Troubleshoot: If you get prompted that your program is waiting for a device to be attached, be sure to attach your Arduino to the same USB port it was in when you installed the Standard Firmata sketch. 
+      li.collection-item 
+        p Unplug your Arduino. Then, plug the remaining servos into ports 2, 3, 4, 6, 8, 9, and 10.
+        
+      
+      
+    
