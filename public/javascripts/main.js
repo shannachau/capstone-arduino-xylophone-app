@@ -8,8 +8,8 @@ $(function(){
       if (event.keyCode == keyCode){
         socket.emit('moveServo', servo);
         expandAnimation(element);
+        console.log('Moving ' + servo);
       }
-      console.log('Moving ' + servo);
     });
 
     $(element).on('click', function(){
