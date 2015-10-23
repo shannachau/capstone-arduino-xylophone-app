@@ -38,3 +38,20 @@ main {
     transform: scale(1);
   }
 }
+
+.card .card-title {
+  font-size: 16px;
+}
+
+.materials {
+  display: block;
+  margin: auto;
+}
+
+ol {
+  padding-right: 40px;
+}
+
+.block {
+  display: block;
+}
