@@ -8,22 +8,17 @@ html
   body
     header
       .container
-        a.button-collapse(href='#')
+        a.button-collapse(href='#')(data-activates='nav-mobile')
           i.material-icons.medium.hide-on-large-only menu
-        ul.right.hide-on-medium-and-down
+        ul#nav-mobile.side-nav.fixed
+          li.logo
+            a.brand-logo.center(href='/')
+              img(src='images/xylobot-logo.png')
+              h4 XYLOBOT
           li.bold
             a(href='/tutorial') Tutorial
           li.bold
             a(href='/about') About
-      ul#nav-mobile.side-nav.fixed
-        li.logo
-          a.brand-logo.center(href='/')
-            img(src='images/xylobot-logo.png')
-            h4 XYLOBOT
-        li.bold
-          a(href='/tutorial') Tutorial
-        li.bold
-          a(href='/about') About
     main
       block content
     

@@ -17,18 +17,6 @@ ol {
   padding-top: 50px;
 }
 
-.btn.key {
-  height: 450px;
-  width: 12.5%;
-  float: left;
-}
-
-.key p {
-  font-size: 20px;
-  margin: auto;
-  color: black;
-}
-
 .key.expand {
   animation: expand 0.2s ease-in-out;
 }
@@ -43,6 +31,17 @@ ol {
   }
 }
 
+.material-icons {
+  padding-top: 20px;
+  color: black;
+}
+
+.btn.key {
+  height: 450px;
+  width: 12.5%;
+  float: left;
+}
+
 .card .card-title {
   font-size: 16px;
 }
@@ -54,6 +53,16 @@ ol {
 
 .block {
   display: block;
+}
+
+.side-nav li.logo:hover, .side-nav li.logo.active {
+  background: none;
+}
+
+.key p {
+  font-size: 20px;
+  margin: auto;
+  color: black;
 }
 
 .logo img {
