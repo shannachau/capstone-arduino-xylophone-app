@@ -79,3 +79,7 @@ a.brand-logo {
 .logo h4 {
   text-align: center;
 }
+
+.side-nav .collapsible-header {
+  line-height: 64px;
+}
