@@ -13,7 +13,7 @@ ol {
   padding-right: 40px;
 }
 
-a {
+a h3 {
   color: black;
 }
 
@@ -95,4 +95,8 @@ a.brand-logo {
 .side-nav .tutorial-nav a {
   height: 50px;
   line-height: 50px;
+}
+
+.tutorial-headers {
+  padding-top: 40px;
 }
