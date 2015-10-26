@@ -1,7 +1,8 @@
 $(function(){
+  $('.button-collapse').sideNav();
+
   // connect to server
   var socket = io.connect('http://localhost:8081');
-  $(".button-collapse").sideNav();
   // emits an event to server if key is clicked or triggered by keypress
   function keyPressOrClick(servo, keyCode, element){
     $(document).on('keypress', function(event){

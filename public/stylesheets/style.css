@@ -87,3 +87,12 @@ a.brand-logo {
 .side-nav .collapsible-header {
   line-height: 64px;
 }
+
+.tutorial-nav li {
+  font-weight: 300;
+}
+
+.side-nav .tutorial-nav a {
+  height: 50px;
+  line-height: 50px;
+}
