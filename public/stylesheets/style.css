@@ -2,15 +2,19 @@ main {
   padding-left: 240px;
 }
 
-.xylophone {
-  padding-top: 50px;
-}
-
 /* removing padding when side-nav bar is not displayed */
 @media only screen and (max-width: 992px) {
   main {
     padding-left: 0;
   }
+}
+
+ol {
+  padding-right: 40px;
+}
+
+.xylophone {
+  padding-top: 50px;
 }
 
 .btn.key {
@@ -48,10 +52,21 @@ main {
   margin: auto;
 }
 
-ol {
-  padding-right: 40px;
-}
-
 .block {
   display: block;
+}
+
+.logo img {
+  width: 85%;
+  display: block;
+  margin: auto;
+  padding-top: 25px;
+}
+
+a.brand-logo {
+  height: auto;
+}
+
+.logo h4 {
+  text-align: center;
 }
