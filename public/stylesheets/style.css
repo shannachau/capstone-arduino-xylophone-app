@@ -13,6 +13,10 @@ ol {
   padding-right: 40px;
 }
 
+a {
+  color: black;
+}
+
 .xylophone {
   padding-top: 50px;
 }
@@ -31,7 +35,7 @@ ol {
   }
 }
 
-.material-icons {
+.button-collapse .material-icons {
   padding-top: 20px;
   color: black;
 }
