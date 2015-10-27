@@ -65,16 +65,22 @@ $(function(){
     // setting 1000 ms delay while shifting through array
     var loopSong = setInterval(function(){
       // calling moveServo function
-      numToKey[song.shift()]();
+      var num = song.shift();
+      numToKey[num]();
+
+      // do the animation
+      var element = '.' + num.toString();
+      expandAnimation(element);
 
       // stop the loop once you have looped through entire array
       if (song.length == 0){
         clearInterval(loopSong);
       }
     }, 1000);
+
   }
 
-  $('.play-song').on('click', function(){
+  $('.mary').on('click', function(){
     playSong(maryHadLamb);
   })
 });
