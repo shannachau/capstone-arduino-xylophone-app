@@ -3,6 +3,7 @@ $(function(){
 
   // connect to server
   var socket = io.connect('https://localhost:8081', {
+    'secure': true,
     'reconnectionAttempts': 10
   });
 
