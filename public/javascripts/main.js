@@ -1,16 +1,15 @@
+// **COMMENTS** ARE FOR ADVANCED/CUSTOMIZATION SET UP
+
 $(function(){
   $('.button-collapse').sideNav();
-
   // connect to server
   var socket = io.connect('https://still-sands-6354.herokuapp.com', {
     'reconnectionAttempts': 10
   });
-
-  // emits an event to server which will move the servo
-  function moveServo(servo){
-    socket.emit('moveServo', servo);
-    console.log('Moving ' + servo);
-  }
+  // ** USE COMMENTED LINES BELOW INSTEAD IF HOSTING APP ON LOCAL MACHINE **
+  //var socket = io.connect('http://localhost:8081', {
+  //  'reconnectionAttempts': 10
+  //});
 
   // moves servo if key is clicked or triggered by keypress
   function keyPressOrClick(servo, keyCode, element){
@@ -25,6 +24,12 @@ $(function(){
       moveServo(servo);
       expandAnimation(element);
     })
+  }
+
+  // emits an event to server which will move the servo
+  function moveServo(servo){
+    socket.emit('moveServo', servo);
+    console.log('Moving ' + servo);
   }
 
   // animation for keypress or click
@@ -45,6 +50,10 @@ $(function(){
   keyPressOrClick('Servo8', 54, '.6');
   keyPressOrClick('Servo9', 55, '.7');
   keyPressOrClick('Servo10', 56, '.8');
+  // ** ADD ADDITIONAL SERVOS HERE **
+
+
+  // PROGRAMMING SONGS ---------------------------------------------------------
 
   // mapping integers to keyPressorClick function to easily program songs
   var numToKey = {};
@@ -56,7 +65,6 @@ $(function(){
   numToKey[6] = moveServo.bind(numToKey, 'Servo8');
   numToKey[7] = moveServo.bind(numToKey, 'Servo9');
   numToKey[8] = moveServo.bind(numToKey, 'Servo10');
-
 
   var maryHadLamb = [3,2,1,2,3,3,3,2,2,2,3,5,5,3,2,1,2,3,3,3,3,2,2,3,2,1];
 

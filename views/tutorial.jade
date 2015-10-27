@@ -147,40 +147,47 @@ block content
     
     ol.collection
       li.collection-item
-        p Clone these two repos to your local machine. The main files are commented if you want to have a better understanding of what the code is doing. 
-          
-        a(href='https://github.com/shannachau/capstone-arduino-xylophone') Arduino 
-        p This repo holds the code to create a server that you will be running on your local machine. This server will relay information from the web application to your Arduino. 
-          
-        a(href='https://github.com/shannachau/capstone-arduino-xylophone-server') Server
-        p This repo holds the code that will program your Arduino to listen to specific events in order to trigger the appropriate servos. 
+        p If you have a xylophone with more than 8 keys and would like to modify this project to work for your particular xylophone, skip to the #[a(href='tutorial#advanced') Advanced/Customization] section. 
+        p #[a(href='https://github.com/shannachau/capstone-arduino-xylophone') Arduino] - Clone or fork this repo to your local machine. The main file is commented if you want to have a better understanding of what the code is doing. This repo holds the code that will program your Arduino to listen to specific events emitted from the server in order to trigger the appropriate servos. 
       li.collection-item
-        p #[em Optional] If you have a xylophone with more than 8 keys, you’ll want to also clone this repo for the web app and modify as necessary. You can add additional keys on index.jade and make changes to main.js. 
-        a(href='https://github.com/shannachau/capstone-arduino-xylophone-app') Web app
-        p You can add additional xylophone keys to display in index.jade. You will also need to make changes to main.js.
+        p Now, you can get your Arduino started. Plug your Arduino back into the same USB port as before. Go to the directory where you have the Arduino repo, run #[code $ npm install], then run #[code $ npm start]. You should see something like this: 
+        img.materialboxed.materials(src='images/start-arduino.png')
+      li.collection-item
+        p Return to #[a(href='') this] page. You can now click or press keys 1-8 to make the servos move! 
+        
+    // ADVANCED REPO SET-UP ----------------------------------------------------
+    a(name='advanced')
+      h5.tutorial-headers Advanced/Customization
+      
+    ol.collection
+      li.collection-item
+        p If you have a xylophone with more than 8 keys, you’ll want to also clone these repos for the web app and server to modify as necessary.
+        p #[a(href='https://github.com/shannachau/capstone-arduino-xylophone-server') Server] - You will also need to clone this repo for the server component. The server will replay information from the web application to your Arduino. There is no modification necessary for this code.
+        p #[a(href='https://github.com/shannachau/capstone-arduino-xylophone') Arduino] - This repo holds the code that will program your Arduino to listen to specific events in order to trigger the appropriate servos. Look at starred comments inside servo.js.
+        p #[a(href='https://github.com/shannachau/capstone-arduino-xylophone-app') Web app] - You can add additional xylophone keys to display in app/views/index.jade. Then you will need to add more keyPressOrClick functions in app/public/javascripts/main.js to trigger the servo. Also refer to the starred comments in these files.
+        
       li.collection-item
         p Go into the directory where you have the server repo. Run #[code $ npm install] in your terminal to install required modules.  To get the program started, run #[code $ npm start] in your terminal. You should see something like this: 
         img.materialboxed.materials(src='images/start-server.png')
         p Keep this tab in your terminal running.
       li.collection-item
-        p Now that the server is up and running, you can get your Arduino started. Plug your Arduino back into the same USB port as before. Again, go to the directory where you have the Arduino repo, run #[code $ npm install], and run #[code $ npm start]. You should see something like this: 
+        p Next, plug your Arduino back into the same USB port as before. Go into the directory where you have the arduino repo and run #[code $ npm install] followed by #[code $ npm start]. You should see something like this.
         img.materialboxed.materials(src='images/start-arduino.png')
-        p Back in your tab for the server, you should see a console message that someone is on the port. 
+        p If you switch back to the tab with your server running, you'll notice that it has logged that someone is listening on the port.
       li.collection-item
-        p Return to #[a(href='') this] page. On your server console, you should see that another person is listening to the port. If you don't, try refreshing the page or restarting the server and/or Arduino. You can now click or press keys 1-8 to make the servos move! 
-    
-        
+        p Lastly, let's get the web application running. Go to the repo you have the app cloned in and run  #[code $ npm install] followed by #[code $ npm start]. Next, go to your web browser and go to localhost:3000. Again, your server will log that someone is listening to the port. Now, you should be able to click or press keys on the front page to make the servos move!
+      
     // RIG SET-UP -------------------------------------------------------------- 
     a(name='rig')
       h3.tutorial-headers Rig Set-Up
     
     ol.collection
       li.collection-item
-        p Now you’ll need to make some kind of rig around your xylophone to mount the servos to. You can really use any materials you like that are reasonably rigid. 
+        p Now you just have a jumble of servos moving, so you’ll need to make some kind of rig around your xylophone to mount the servos to. You can really use any materials you like that are reasonably rigid. 
       li.collection-item
-        p Mounting the servos onto your rig will take some tinkering around to get them at the right angle. I went through each servo and held them over the xylophone keys and triggered them to figure out the optimal angle. 
+        p Mounting the servos onto your rig will take some tinkering around to get them at the right angle. I went through each servo and held them over the xylophone keys and triggered them to figure out the optimal angle. The following is just an example of something you could do. Feel free to use your imagination!
         img.materialboxed.materials(src='images/rig.jpg')
         img.materialboxed.materials(src='images/rig-2.jpg')
         img.materialboxed.materials(src='images/rig-3.jpg')
       li.collection-item
-        p Once you have your rig set up, plug your Arduino back into the USB port, start the server, and navigate back to the main page of the website. PLAY AWAY!
+        p Once you have your rig set up, plug your Arduino back into the USB port, start the server, and navigate back to the main page of the website to play your xylophone. Have fun!
