@@ -2,7 +2,7 @@ $(function(){
   $('.button-collapse').sideNav();
 
   // connect to server
-  var socket = io.connect('https://localhost:8081', {
+  var socket = io.connect('https://still-sands-6354.herokuapp.com:80', {
     'secure': true,
     'reconnectionAttempts': 10
   });
