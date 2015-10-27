@@ -64,6 +64,10 @@ $(function(){
   function playSong(song){
     // setting 1000 ms delay while shifting through array
     var loopSong = setInterval(function(){
+      // stop the loop once you have looped through entire array
+      if (song.length == 0){
+        clearInterval(loopSong);
+      }
       // calling moveServo function
       var num = song.shift();
       numToKey[num]();
@@ -72,11 +76,7 @@ $(function(){
       var element = '.' + num.toString();
       expandAnimation(element);
 
-      // stop the loop once you have looped through entire array
-      if (song.length == 0){
-        clearInterval(loopSong);
-      }
-    }, 1000);
+    }, 800);
 
   }
 
