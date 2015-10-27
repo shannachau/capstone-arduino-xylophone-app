@@ -2,7 +2,9 @@ $(function(){
   $('.button-collapse').sideNav();
 
   // connect to server
-  var socket = io.connect('http://localhost:8081');
+  var socket = io.connect('http://localhost:8081', {
+    'reconnectionAttempts': 10
+  });
 
   // emits an event to server which will move the servo
   function moveServo(servo){
