@@ -53,6 +53,8 @@ a h3 {
 .materials {
   display: block;
   margin: auto;
+  width: 75%;
+  padding: 2px;
 }
 
 .block {
@@ -99,4 +101,9 @@ a.brand-logo {
 
 .tutorial-headers {
   padding-top: 40px;
+}
+
+/* Fixes issue with lightbox when clicking photos in collections */
+.collection {
+  overflow: visible;
 }
