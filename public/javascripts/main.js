@@ -69,8 +69,15 @@ $(function(){
 
   var maryHadLamb = [3,2,1,2,3,3,3,0,2,2,2,0,3,5,5,0,3,2,1,2,3,3,3,3,2,2,3,2,1];
 
+  var wreckingBall = [6,6,0,2,0,6,0,2,0,6,0,1,0,6,0,1,0,1,3,0,2,3,2,3,4,0,2,0,0,0,6,0,2,0,6,0,2,0,6,0,1,0,6,0,1,0,1,3,0,2,3,2,3,4,0,2,0];
+
+  var trapQueen = [1,1,1,5,3,0,2,2,2,0,2,0,1,0,1,1,1,5,3,0,2,2,2,2,0,1,1,1];
+
+  var partition = [5,0,6,0,0,7,8,0,8,7,6,5,6,7,6,0,6,7,6,0,6,7,6,0,5,0,6,0,0,7,8,0,8,7,6,5,6,7,6,0,6,7,6,0,6,7,6,0];
+
+  var blankSpace = [4,4,0,4,4,0,4,4,0,4,0,6,6,5,4,5,4,5,2]
   // plays a song that's formatted as an array of integers
-  function playSong(song){
+  function playSong(song, speed){
     // sets delay while shifting through array
     var loopSong = setInterval(function(){
       // stop the loop once you have looped through entire array
@@ -85,10 +92,26 @@ $(function(){
         var element = '.' + num.toString();
         expandAnimation(element);
       }
-    }, 500);
+    }, speed);
   }
 
   $('.mary').on('click', function(){
-    playSong(maryHadLamb);
+    playSong(maryHadLamb, 500);
+  })
+
+  $('.miley').on('click', function(){
+    playSong(wreckingBall, 400);
+  })
+
+  $('.fetty').on('click', function(){
+    playSong(trapQueen, 225);
+  })
+
+  $('.beyonce').on('click', function(){
+    playSong(partition);
+  })
+
+  $('.taylor').on('click', function(){
+    playSong(blankSpace, 300);
   })
 });
