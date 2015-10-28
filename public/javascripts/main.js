@@ -70,22 +70,21 @@ $(function(){
 
   // plays a song that's formatted as an array of integers
   function playSong(song){
-    // setting 1000 ms delay while shifting through array
+    // sets delay while shifting through array
     var loopSong = setInterval(function(){
       // stop the loop once you have looped through entire array
       if (song.length == 0){
         clearInterval(loopSong);
+      } else {
+        // calling moveServo function
+        var num = song.shift();
+        numToKey[num]();
+
+        // do the animation
+        var element = '.' + num.toString();
+        expandAnimation(element);
       }
-      // calling moveServo function
-      var num = song.shift();
-      numToKey[num]();
-
-      // do the animation
-      var element = '.' + num.toString();
-      expandAnimation(element);
-
     }, 800);
-
   }
 
   $('.mary').on('click', function(){
