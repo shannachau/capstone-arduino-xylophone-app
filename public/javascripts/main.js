@@ -84,7 +84,7 @@ $(function(){
         var element = '.' + num.toString();
         expandAnimation(element);
       }
-    }, 800);
+    }, 500);
   }
 
   $('.mary').on('click', function(){
