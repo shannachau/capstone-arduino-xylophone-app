@@ -57,6 +57,7 @@ $(function(){
 
   // mapping integers to keyPressorClick function to easily program songs
   var numToKey = {};
+  numToKey[0] = console.log('Pausing');
   numToKey[1] = moveServo.bind(numToKey, 'Servo2');
   numToKey[2] = moveServo.bind(numToKey, 'Servo3');
   numToKey[3] = moveServo.bind(numToKey, 'Servo4');
@@ -66,7 +67,7 @@ $(function(){
   numToKey[7] = moveServo.bind(numToKey, 'Servo9');
   numToKey[8] = moveServo.bind(numToKey, 'Servo10');
 
-  var maryHadLamb = [3,2,1,2,3,3,3,2,2,2,3,5,5,3,2,1,2,3,3,3,3,2,2,3,2,1];
+  var maryHadLamb = [3,2,1,2,3,3,3,0,2,2,2,0,3,5,5,0,3,2,1,2,3,3,3,3,2,2,3,2,1];
 
   // plays a song that's formatted as an array of integers
   function playSong(song){
