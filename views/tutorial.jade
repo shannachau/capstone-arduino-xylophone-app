@@ -8,78 +8,78 @@ block content
     a(name='introduction')
       h3.tutorial-headers Introduction
       
-    p.flow-text This tutorial will walk you through how to create an Arduino controlled xylophone that you can control via web app in your browser. Rather than using the Arduino IDE to program our board, we will be using a Javascript framework called        #[a(href='http://johnny-five.io/') Johnny-Five]. This will allow you to easily incorporate other Javascript frameworks, such as #[a(href='http://socket.io/') socket.io], which will allow you to connect the Arduino to a web app. All three components (Arduino, server, and web app) are built in the Node.js envrionment.
+    p This tutorial will walk you through how to create an Arduino controlled xylophone that you can control via web app in your browser. Rather than using the Arduino IDE to program our board, we will be using a Javascript framework called        #[a(href='http://johnny-five.io/') Johnny-Five]. This will allow you to easily incorporate other Javascript frameworks, such as #[a(href='http://socket.io/') socket.io], which will allow you to connect the Arduino to a web app. All three components (Arduino, server, and web app) are built in the Node.js envrionment.
         
-    p.flow-text This tutorial requires some basic knowledge of the command line and Github. Some experience using an Arduino helps, but is not required!
+    p This tutorial requires some basic knowledge of the command line and Github. Some experience using an Arduino helps, but is not required!
       
     
     // MATERIALS ---------------------------------------------------------------
     a(name='materials')
       h3.tutorial-headers Materials 
     
-    p.flow-text I purchased almost all my materials from Amazon. For hardware, Adafruit is also a great place to go. The total cost for everything was around $80.
+    p I purchased almost all my materials from Amazon. For hardware, Adafruit is also a great place to go. The total cost for everything was around $80.
     
     ul.collapsible.popout(data-collapsible='accordian')
       li
         .collapsible-header Arduino Uno board
           i.material-icons.right expand_more
         .collapsible-body
-          p.flow-text These can be purchased on their own or inside of starter kits. I'd recommend the starter kit if you're interested in exploring Arduino programming futher. 
+          p These can be purchased on their own or inside of starter kits. I'd recommend the starter kit if you're interested in exploring Arduino programming futher. 
           img.materialboxed.materials(src='images/ard-uno.jpg')
-          p.flow-text Amazon - $20
+          p Amazon - $20
       li
         .collapsible-header Sensor shield for Arduino Uno
           i.material-icons.right expand_more
         .collapsible-body
-          p.flow-text This allows you to plug your servos directly onto the shield without having to worry about creating your own circuits on a breadboard and supplying additional power. The model I purchased was the SainSmart Digital Analog  Module V5 Sensor Shield. Just make sure the one your purchase is compatiable with the Arduino UNO. Also keep in mind that thi.flow-texts shield only has enough ports for 12 servos. If you're planning to use a larger xylophone, you may need an additional Arduino and shield.
+          p This allows you to plug your servos directly onto the shield without having to worry about creating your own circuits on a breadboard and supplying additional power. The model I purchased was the SainSmart Digital Analog  Module V5 Sensor Shield. Just make sure the one your purchase is compatiable with the Arduino UNO. Also keep in mind that this shield only has enough ports for 12 servos. If you're planning to use a larger xylophone, you may need an additional Arduino and shield.
           img.materialboxed.materials(src='images/shield.jpg')
-          p.flow-text Amazon - $15
+          p Amazon - $15
       li
         .collapsible-header 8x Servo motors
           i.material-icons.right expand_more
         .collapsible-body
-          p.flow-text You will need one per key on your xylophone. I purchased micro 9g hobby servos that came in a pack of 10..flow-text
+          p You will need one per key on your xylophone. I purchased micro 9g hobby servos that came in a pack of 10.
           img.materialboxed.materials(src='images/servo.jpg')
           img.materialboxed.materials(src='images/servo-2.jpg')
-          p.flow-text Amazon - $20
+          p Amazon - $20
       li
         .collapsible-header Female to male servo extension cords (optional)
           i.material-icons.right expand_more
         .collapsible-body
-          p.flow-text  You might need them if you can't connect the Arduino to the servos near the end of the xylophone.
+          p  You might need them if you can't connect the Arduino to the servos near the end of the xylophone.
           img.materialboxed.materials(src='images/servo-extender.jpg')
-          p.flow-text Amazon - $5
+          p Amazon - $5
       li
         .collapsible-header Xylophone
           i.material-icons.right expand_more
         .collapsible-body
-          p.flow-text I bought a cheap xylophone made for children with 8 keys. If you want to play a wider range of music, you can purchase a xylophone with more keys and modify the code as necessary. Again, keep in mind the port limitations on the shield. 
+          p I bought a cheap xylophone made for children with 8 keys. If you want to play a wider range of music, you can purchase a xylophone with more keys and modify the code as necessary. Again, keep in mind the port limitations on the shield. 
           img.materialboxed.materials(src='images/xylophone.jpg')
-          p.flow-text Amazon - $15
+          p Amazon - $15
       li
         .collapsible-header Popsicle sticks
           i.material-icons.right expand_more
         .collapsible-body
-          p.flow-text I picked these up at a craft store. You definitely don't need to use popsicle sticks for your rig, but I chose to use them because they were easy to configure to whatever size I needed and easy to assemble. A light wood or even cardboard would work.
-          p.flow-text Joanne's - $6
+          p I picked these up at a craft store. You definitely don't need to use popsicle sticks for your rig, but I chose to use them because they were easy to configure to whatever size I needed and easy to assemble. A light wood or even cardboard would work.
+          p Joanne's - $6
       li
         .collapsible-header 8x Wooden coffee stir sticks
           i.material-icons.right expand_more
         .collapsible-body
-          p.flow-text You will need something fairly light to reduce the load on your servo. Disposable chopsticks or light wooden dowels would work just as well.
-          p.flow-text 'Borrowed' from a coffee shop - $0
+          p You will need something fairly light to reduce the load on your servo. Disposable chopsticks or light wooden dowels would work just as well.
+          p 'Borrowed' from a coffee shop - $0
       li
         .collapsible-header 8x Small metal washers
           i.material-icons.right expand_more
         .collapsible-body
-          p.flow-text These will be attached to the end of the stir sticks to make contact with the xylophone. Any other kind of small metal object would also work.
-          p.flow-text Home Depot - $1
+          p These will be attached to the end of the stir sticks to make contact with the xylophone. Any other kind of small metal object would also work.
+          p Home Depot - $1
       li
         .collapsible-header Hot glue gun
           i.material-icons.right expand_more
         .collapsible-body
-          p.flow-text Glues everything together with no need to wait a long time for everything to dry.
-          p.flow-text Joanne's - $10
+          p Glues everything together with no need to wait a long time for everything to dry.
+          p Joanne's - $10
     
     
     // ARDUINO SET-UP ----------------------------------------------------------
@@ -88,15 +88,15 @@ block content
     
     ol.collection
       li.collection-item
-        p.flow-text First, you’ll want to make sure your Arduino board is in working order. Download and install the Arduino Software (IDE) from #[a(href='https://www.arduino.cc/en/Main/Software') here]. 
+        p First, you’ll want to make sure your Arduino board is in working order. Download and install the Arduino Software (IDE) from #[a(href='https://www.arduino.cc/en/Main/Software') here]. 
       li.collection-item
-        p.flow-text Once installed, open up the software and navigate to File > Examples > Blink. A new window will open up with the Blink Sketch. Click the upload button. If the red LED button is blinking on your Arduino board, then this means your board works! 
+        p Once installed, open up the software and navigate to File > Examples > Blink. A new window will open up with the Blink Sketch. Click the upload button. If the red LED button is blinking on your Arduino board, then this means your board works! 
         img.materialboxed.materials(src='images/blink.png')
-        em.flow-text Troubleshooting: If you have trouble getting your sketch to upload, check to see if you have the correct port by going to Tools > Port. Mine was: dev/cu.usbmodem1431 (Arduino/Genuino Uno). 
+        em Troubleshooting: If you have trouble getting your sketch to upload, check to see if you have the correct port by going to Tools > Port. Mine was: dev/cu.usbmodem1431 (Arduino/Genuino Uno). 
       li.collection-item
-        p.flow-text Now, navigate to File > Examples > Firmata > StandardFirmata. Upload this sketch onto the Arduino. This is a special protocol that will enable you to use the Johnny-Five framework. 
+        p Now, navigate to File > Examples > Firmata > StandardFirmata. Upload this sketch onto the Arduino. This is a special protocol that will enable you to use the Johnny-Five framework. 
       li.collection-item
-        p.flow-text Next, unplug the Arduino. You’ll need to connect the sensor shield on top of your Arduino board.  Line up the pins on the bottom of the sensor to the ports on the sides of the Arduino. Lining up the pins may take some jiggling around. If some pins are a little bent, just bend them back gently to straighten them out. Be sure to push the board all the way down into the Arduino.
+        p Next, unplug the Arduino. You’ll need to connect the sensor shield on top of your Arduino board.  Line up the pins on the bottom of the sensor to the ports on the sides of the Arduino. Lining up the pins may take some jiggling around. If some pins are a little bent, just bend them back gently to straighten them out. Be sure to push the board all the way down into the Arduino.
         img.materialboxed.materials(src='images/shield-line-up-2.jpg')
         img.materialboxed.materials(src='images/shield-line-up.jpg')
         img.materialboxed.materials(src='images/shield-line-up-3.jpg')
@@ -109,19 +109,19 @@ block content
     
     ol.collection
       li.collection-item
-        p.flow-text Generally, most servos have a range of motion from 0-180 degrees. However, this will vary slightly servo to servo, so it’s a good idea to test them. Some may also move a little faster than others.
+        p Generally, most servos have a range of motion from 0-180 degrees. However, this will vary slightly servo to servo, so it’s a good idea to test them. Some may also move a little faster than others.
       li.collection-item
-        p.flow-text Locate pin number 2 on the sensor shield. It should have three pins in a column labeled GVS (ground, voltage, signal). The ground wire on your servo is typically black or brown. The voltage wire is usually red or orange. The signal wire is usually white or yellow. Line up the corresponding pins and wires and plug in your servo.
+        p Locate pin number 2 on the sensor shield. It should have three pins in a column labeled GVS (ground, voltage, signal). The ground wire on your servo is typically black or brown. The voltage wire is usually red or orange. The signal wire is usually white or yellow. Line up the corresponding pins and wires and plug in your servo.
         img.materialboxed.materials(src='images/shield-port.jpg')
       li.collection-item
-        p.flow-text Now we are ready to write a small Johnny-Five program to test our servo. Follow the commands below inside your terminal. If you have Node.js already installed, skip the first command. If you're not sure if you do, you can check by using #[code $ node -v]. 
+        p Now we are ready to write a small Johnny-Five program to test our servo. Follow the commands below inside your terminal. If you have Node.js already installed, skip the first command. If you're not sure if you do, you can check by using #[code $ node -v]. 
         
         code.block $ mkdir test-servo
         code.block $ cd test-servo
         code.block $ touch servo.js
         code.block $ npm install johnny-five
       li.collection-item
-        p.flow-text Open servo.js and input the following code:
+        p Open servo.js and input the following code:
         
         code.block var five = require('johnny-five');
         code.block board = new five.Board();
@@ -130,10 +130,10 @@ block content
         code.block &nbsp; myServo.sweep();
         code.block });
       li.collection-item
-        p.flow-text Plug your Arduino back in. In your terminal run your code by executing #[code $ node servo.js]. Your servo should sweep back and forth between 0 and 180 degrees. You can exit the program with CTRL+C. 
-        em.flow-text Troubleshooting: If you get prompted that your program is waiting for a device to be attached, be sure to attach your Arduino to the same USB port it was in when you installed the Standard Firmata sketch. 
+        p Plug your Arduino back in. In your terminal run your code by executing #[code $ node servo.js]. Your servo should sweep back and forth between 0 and 180 degrees. You can exit the program with CTRL+C. 
+        em Troubleshooting: If you get prompted that your program is waiting for a device to be attached, be sure to attach your Arduino to the same USB port it was in when you installed the Standard Firmata sketch. 
       li.collection-item 
-        p.flow-text Unplug your Arduino. Then, plug the remaining servos into ports 2, 3, 4, 6, 8, 9, and 10.
+        p Unplug your Arduino. Then, plug the remaining servos into ports 2, 3, 4, 6, 8, 9, and 10.
         img.materialboxed.materials(src='images/ard-all-ports-plugged.jpg')
     
         
@@ -143,14 +143,14 @@ block content
     
     ol.collection
       li.collection-item
-        p.flow-text If you have a xylophone with more than 8 keys and would like to modify this project to work for your particular xylophone, skip to the #[a(href='tutorial#advanced') Advanced/Customization] section. 
-        p.flow-text #[a(href='https://github.com/shannachau/capstone-arduino-xylophone') Arduino] - Clone or fork this repo to your local machine. The main file is commented if you want to have a better understanding of what the code is doing. This repo holds the code that will program your Arduino to listen to specific events emitted from the server in order to trigger the appropriate servos. 
+        p If you have a xylophone with more than 8 keys and would like to modify this project to work for your particular xylophone, skip to the #[a(href='tutorial#advanced') Advanced/Customization] section. 
+        p #[a(href='https://github.com/shannachau/capstone-arduino-xylophone') Arduino] - Clone or fork this repo to your local machine. The main file is commented if you want to have a better understanding of what the code is doing. This repo holds the code that will program your Arduino to listen to specific events emitted from the server in order to trigger the appropriate servos. 
       li.collection-item
-        p.flow-text Now, you can get your Arduino started. Plug your Arduino back into the same USB port as before. Go to the directory where you have the Arduino repo, run #[code $ npm install], then run #[code $ npm start]. You should see something like this: 
+        p Now, you can get your Arduino started. Plug your Arduino back into the same USB port as before. Go to the directory where you have the Arduino repo, run #[code $ npm install], then run #[code $ npm start]. You should see something like this: 
         img.materialboxed.materials(src='images/start-arduino.png')
-        p.flow-text Hit CTRL+C twice to exit the program.
+        p Hit CTRL+C twice to exit the program.
       li.collection-item
-        p.flow-text Return to #[a(href='') this] page. You can now click or press keys 1-8 to make the servos move! 
+        p Return to #[a(href='') this] page. You can now click or press keys 1-8 to make the servos move! 
         
     // ADVANCED REPO SET-UP ----------------------------------------------------
     a(name='advanced')
@@ -158,21 +158,21 @@ block content
       
     ol.collection
       li.collection-item
-        p.flow-text If you have a xylophone with more than 8 keys, you’ll want to also clone these repos for the web app and server to modify as necessary.
-        p.flow-text #[a(href='https://github.com/shannachau/capstone-arduino-xylophone-server') Server] - You will also need to clone this repo for the server component. The server will replay information from the web application to your Arduino. There is no modification necessary for this code.
-        p.flow-text #[a(href='https://github.com/shannachau/capstone-arduino-xylophone') Arduino] - This repo holds the code that will program your Arduino to listen to specific events in order to trigger the appropriate servos. Look at starred comments inside servo.js.
-        p.flow-text #[a(href='https://github.com/shannachau/capstone-arduino-xylophone-app') Web app] - You can add additional xylophone keys to display in app/views/index.jade. Then you will need to add more keyPressOrClick functions in app/public/javascripts/main.js to trigger the servo. Also refer to the starred comments in these files.
+        p If you have a xylophone with more than 8 keys, you’ll want to also clone these repos for the web app and server to modify as necessary.
+        p #[a(href='https://github.com/shannachau/capstone-arduino-xylophone-server') Server] - You will also need to clone this repo for the server component. The server will replay information from the web application to your Arduino. There is no modification necessary for this code.
+        p #[a(href='https://github.com/shannachau/capstone-arduino-xylophone') Arduino] - This repo holds the code that will program your Arduino to listen to specific events in order to trigger the appropriate servos. Look at starred comments inside servo.js.
+        p #[a(href='https://github.com/shannachau/capstone-arduino-xylophone-app') Web app] - You can add additional xylophone keys to display in app/views/index.jade. Then you will need to add more keyPressOrClick functions in app/public/javascripts/main.js to trigger the servo. Also refer to the starred comments in these files.
         
       li.collection-item
-        p.flow-text Go into the directory where you have the server repo. Run #[code $ npm install] in your terminal to install required modules.  To get the program started, run #[code $ npm start] in your terminal. You should see something like this: 
+        p Go into the directory where you have the server repo. Run #[code $ npm install] in your terminal to install required modules.  To get the program started, run #[code $ npm start] in your terminal. You should see something like this: 
         img.materialboxed.materials(src='images/start-server.png')
-        p.flow-text Keep this tab in your terminal running.
+        p Keep this tab in your terminal running.
       li.collection-item
-        p.flow-text Next, plug your Arduino back into the same USB port as before. Go into the directory where you have the arduino repo and run #[code $ npm install] followed by #[code $ npm start]. You should see something like this.
+        p Next, plug your Arduino back into the same USB port as before. Go into the directory where you have the arduino repo and run #[code $ npm install] followed by #[code $ npm start]. You should see something like this.
         img.materialboxed.materials(src='images/start-arduino.png')
         p If you switch back to the tab with your server running, you'll notice that it has logged that someone is listening on the port.
       li.collection-item
-        p.flow-text Lastly, let's get the web application running. Go to the repo you have the app cloned in and run  #[code $ npm install] followed by #[code $ npm start]. Next, go to your web browser and go to localhost:3000. Again, your server will log that someone is listening to the port. Now, you should be able to click or press keys on the front page to make the servos move! To exit any of these repos, use CTRL+C.
+        p Lastly, let's get the web application running. Go to the repo you have the app cloned in and run  #[code $ npm install] followed by #[code $ npm start]. Next, go to your web browser and go to localhost:3000. Again, your server will log that someone is listening to the port. Now, you should be able to click or press keys on the front page to make the servos move! To exit any of these repos, use CTRL+C.
       
     // RIG SET-UP -------------------------------------------------------------- 
     a(name='rig')
@@ -180,11 +180,11 @@ block content
     
     ol.collection
       li.collection-item
-        p.flow-text Now you just have a jumble of servos moving, so you’ll need to make some kind of rig around your xylophone to mount the servos to. You can really use any materials you like that are reasonably rigid. 
+        p Now you just have a jumble of servos moving, so you’ll need to make some kind of rig around your xylophone to mount the servos to. You can really use any materials you like that are reasonably rigid. 
       li.collection-item
-        p.flow-text Mounting the servos onto your rig will take some tinkering around to get them at the right angle. I went through each servo and held them over the xylophone keys and triggered them to figure out the optimal angle. The following is just an example of something you could do. Feel free to use your imagination!
+        p Mounting the servos onto your rig will take some tinkering around to get them at the right angle. I went through each servo and held them over the xylophone keys and triggered them to figure out the optimal angle. The following is just an example of something you could do. Feel free to use your imagination!
         img.materialboxed.materials(src='images/rig.jpg')
         img.materialboxed.materials(src='images/rig-2.jpg')
         img.materialboxed.materials(src='images/rig-3.jpg')
       li.collection-item
-        p.flow-text Once you have your rig set up, plug your Arduino back into the USB port, start the server, and navigate back to the main page of the website to play your xylophone. Have fun!
+        p Once you have your rig set up, plug your Arduino back into the USB port, start the server, and navigate back to the main page of the website to play your xylophone. Have fun!
