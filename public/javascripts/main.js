@@ -103,9 +103,9 @@ $(function(){
                         if (num != 0) {
                           numToKey[num]();
 
-                            var element = '.' + num;
-                            expandAnimation(element);
-                            playAudio(element);
+                          var element = '.' + num;
+                          expandAnimation(element);
+                          playAudio(element);
                         }
                       }, i * speed);
                     }
