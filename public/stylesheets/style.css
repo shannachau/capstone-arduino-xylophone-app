@@ -13,6 +13,10 @@ ol {
   padding-right: 40px;
 }
 
+i {
+  color: #757575;
+}
+
 a h3, a h5 {
   color: black;
 }
@@ -101,6 +105,15 @@ a.brand-logo {
 
 .tutorial-headers {
   padding-top: 40px;
+}
+
+.songs {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.fa {
+  margin-right: 20px;
 }
 
 /* Fixes issue with lightbox when clicking photos in collections */
