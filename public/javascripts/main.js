@@ -3,6 +3,23 @@
 $(function(){
   $('.button-collapse').sideNav();
 
+  // for muting audio
+  $('.volume').click(function(){
+    var text = $(this).text();
+    var all_audio = $('audio');
+    if (text == 'volume_up') {
+      $(this).text('volume_off');
+      for(var i = 0; i < all_audio.length; i++){
+        all_audio[i].muted = true;
+      }
+    } else {
+      $(this).text('volume_up');
+      for(var i = 0; i < all_audio.length; i++){
+        all_audio[i].muted = false;
+      }
+    }
+  });
+
   // connect to server
   var socket = io.connect('https://still-sands-6354.herokuapp.com', {
     'reconnectionAttempts': 10
