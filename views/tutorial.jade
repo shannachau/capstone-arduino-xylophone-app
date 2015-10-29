@@ -8,20 +8,16 @@ block content
     a(name='introduction')
       h3.tutorial-headers Introduction
       
-    p This tutorial will walk you through how to create an Arduino controlled xylophone that you can control via web app in your browser. Rather than using the Arduino IDE to program our board, we will be using a Javascript framework called        #[a(href='http://johnny-five.io/') Johnny-Five]. This will allow you to easily incorporate other Javascript frameworks, such as #[a(href='http://socket.io/') socket.io], which will allow you to connect the Arduino to a web app. All three components (Arduino, server, and web app) are built using Node.js.
-    
-    p PICTURE OF SCHEMATIC OF HOW THINGS ARE CONNECTED GOES HERE
-    
+    p This tutorial will walk you through how to create an Arduino controlled xylophone that you can control via web app in your browser. Rather than using the Arduino IDE to program our board, we will be using a Javascript framework called        #[a(href='http://johnny-five.io/') Johnny-Five]. This will allow you to easily incorporate other Javascript frameworks, such as #[a(href='http://socket.io/') socket.io], which will allow you to connect the Arduino to a web app. All three components (Arduino, server, and web app) are built in the Node.js envrionment.
+        
     p This tutorial requires some basic knowledge of the command line and Github. Some experience using an Arduino helps, but is not required!
-    
-    h3 VIDEO/DEMO HERE
-    
+      
     
     // MATERIALS ---------------------------------------------------------------
     a(name='materials')
       h3.tutorial-headers Materials 
     
-    p I purchased almost all my materials from Amazon because of convenience. I knew that they'd deliver quickly and if anything was damaged, I could easily return. For hardware, Adafruit is also a great place to go. The total cost for everything was around 
+    p I purchased almost all my materials from Amazon. For hardware, Adafruit is also a great place to go. The total cost for everything was around $80.
     
     ul.collapsible.popout(data-collapsible='accordian')
       li
@@ -50,7 +46,7 @@ block content
         .collapsible-header Female to male servo extension cords (optional)
           i.material-icons.right expand_more
         .collapsible-body
-          p Though optional, you may need them so that your servos can reach from your Arduino all the way to the end of the xylophone.
+          p  You might need them if you can't connect the Arduino to the servos near the end of the xylophone.
           img.materialboxed.materials(src='images/servo-extender.jpg')
           p Amazon - $5
       li
@@ -64,25 +60,25 @@ block content
         .collapsible-header Popsicle sticks
           i.material-icons.right expand_more
         .collapsible-body
-          p I just picked these up at a craft store. You definitely don't need to use popsicle sticks for your rig, but I chose to use them because they were easy to configure to whatever size I needed and easy to assemble. A light wood or even cardboard would work.
+          p I picked these up at a craft store. You definitely don't need to use popsicle sticks for your rig, but I chose to use them because they were easy to configure to whatever size I needed and easy to assemble. A light wood or even cardboard would work.
           p Joanne's - $6
       li
         .collapsible-header 8x Wooden coffee stir sticks
           i.material-icons.right expand_more
         .collapsible-body
-          p You will need something fairly light. Disposable chopsticks or light wooden dowels would work perfectly fine also. 
+          p You will need something fairly light to reduce the load on your servo. Disposable chopsticks or light wooden dowels would work just as well.
           p 'Borrowed' from a coffee shop - $0
       li
         .collapsible-header 8x Small metal washers
           i.material-icons.right expand_more
         .collapsible-body
-          p These will be attached to the end of the stir sticks to make contact with the xylophone. Any other kind of small metal object would suffice.
+          p These will be attached to the end of the stir sticks to make contact with the xylophone. Any other kind of small metal object would also work.
           p Home Depot - $1
       li
         .collapsible-header Hot glue gun
           i.material-icons.right expand_more
         .collapsible-body
-          p Glues everything together and no need to wait a long time for everything to dry.
+          p Glues everything together with no need to wait a long time for everything to dry.
           p Joanne's - $10
     
     
@@ -94,9 +90,9 @@ block content
       li.collection-item
         p First, you’ll want to make sure your Arduino board is in working order. Download and install the Arduino Software (IDE) from #[a(href='https://www.arduino.cc/en/Main/Software') here]. 
       li.collection-item
-        p Once installed, open up the software and navigate to File > Examples > Blink. A new window will open up with the Blink Sketch. Click the upload button. If the red LED button is blinking on your Arduino board, then yay this means your board works! 
+        p Once installed, open up the software and navigate to File > Examples > Blink. A new window will open up with the Blink Sketch. Click the upload button. If the red LED button is blinking on your Arduino board, then this means your board works! 
         img.materialboxed.materials(src='images/blink.png')
-        em Troubleshooting: If you have trouble getting your sketch to upload, check to see if you have the correct port selected by going to Tools > Port. For me, mine was: dev/cu.usbmodem1431 (Arduino/Genuino Uno).
+        em Troubleshooting: If you have trouble getting your sketch to upload, check to see if you have the correct port by going to Tools > Port. Mine was: dev/cu.usbmodem1431 (Arduino/Genuino Uno). 
       li.collection-item
         p Now, navigate to File > Examples > Firmata > StandardFirmata. Upload this sketch onto the Arduino. This is a special protocol that will enable you to use the Johnny-Five framework. 
       li.collection-item
