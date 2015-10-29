@@ -19,12 +19,14 @@ $(function(){
       if (event.keyCode == keyCode){
         moveServo(servo);
         expandAnimation(element);
+        playAudio(element);
       }
     });
 
     $(element).on('click', function(){
       moveServo(servo);
       expandAnimation(element);
+      playAudio(element);
     })
   }
 
@@ -42,6 +44,13 @@ $(function(){
       $(element).removeClass('expand');
       $(element).addClass('lighten-1');
     });
+  }
+
+  function playAudio(element){
+    var id = element.replace('.', 'audio')
+    var audio = document.getElementById(id);
+    audio.currentTime = 0;
+    audio.play();
   }
 
   keyPressOrClick('Servo2', 49, '.1');
@@ -80,6 +89,7 @@ $(function(){
 
                         var element = '.' + num;
                         expandAnimation(element);
+                        playAudio(element);
                       }, i * speed);
                     }
       timeout(i);
