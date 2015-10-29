@@ -85,7 +85,6 @@ $(function(){
 
   // mapping integers to keyPressorClick function to easily program songs
   var numToKey = {};
-  numToKey[0] = console.log('Pausing');
   numToKey[1] = moveServo.bind(numToKey, 'Servo2');
   numToKey[2] = moveServo.bind(numToKey, 'Servo3');
   numToKey[3] = moveServo.bind(numToKey, 'Servo4');
@@ -95,18 +94,19 @@ $(function(){
   numToKey[7] = moveServo.bind(numToKey, 'Servo9');
   numToKey[8] = moveServo.bind(numToKey, 'Servo10');
 
-
   // plays a song that's formatted as an array of integers with delay
   function playSong(song, speed){
     for(var i = 0; i < song.length; i++){
       var timeout = function(x) {
                       setTimeout(function(){
-                        var num = song[x]
-                        numToKey[num]();
+                        var num = song[x];
+                        if (num != 0) {
+                          numToKey[num]();
 
-                        var element = '.' + num;
-                        expandAnimation(element);
-                        playAudio(element);
+                            var element = '.' + num;
+                            expandAnimation(element);
+                            playAudio(element);
+                        }
                       }, i * speed);
                     }
       timeout(i);
