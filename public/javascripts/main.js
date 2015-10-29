@@ -2,6 +2,7 @@
 
 $(function(){
   $('.button-collapse').sideNav();
+
   // connect to server
   var socket = io.connect('https://still-sands-6354.herokuapp.com', {
     'reconnectionAttempts': 10
@@ -10,6 +11,7 @@ $(function(){
   //var socket = io.connect('http://localhost:8081', {
   //  'reconnectionAttempts': 10
   //});
+
 
   // moves servo if key is clicked or triggered by keypress
   function keyPressOrClick(servo, keyCode, element){
@@ -88,11 +90,14 @@ $(function(){
 
   var wreckingBall = [6,0,2,0,6,0,2,0,6,0,1,0,6,0,1,0,1,3,0,2,3,2,3,4,0,2,0,0,0,6,0,2,0,6,0,2,0,6,0,1,0,6,0,1,0,1,3,0,2,3,2,3,4,0,2,0];
 
-  var trapQueen = [1,1,1,5,3,0,2,2,2,0,2,0,1,0,1,1,1,5,3,0,2,2,2,2,0,1,1,1];
+  var trapQueen = [1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,5,0,0,3,0,0,0,0,0,2,0,0,2,0,0,2,0,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0,
+                  1,0,0,0,0,0,1,0,0,1,0,0,1,0,0,5,0,0,3,0,0,0,0,0,2,0,0,2,0,0,2,0,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0,
+                  1,0,0,0,0,0,1,0,0,1,0,0,1,0,0,5,0,0,3,0,0,0,0,0,2,0,0,2,0,0,2,0,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0,
+                  1,0,0,0,0,0,1,0,0,1,0,0,1,0,0,5,0,0,3];
 
   var partition = [5,0,6,0,0,7,8,0,8,7,6,5,6,7,6,0,6,7,6,0,6,7,6,0,5,0,6,0,0,7,8,0,8,7,6,5,6,7,6,0,6,7,6,0,6,7,6,0];
 
-  var blankSpace = [4,4,0,4,4,0,4,4,0,4,0,6,6,5,4,5,4,5,2]
+  var rainbow = [1,0,0,0,0,8,0,0,0,0,7,0,0,5,6,7,0,0,8,0,0,1,0,0,0,0,1,0,0,6,0,0,5,0,0]
 
   $('.mary').on('click', function(){
     playSong(maryHadLamb, 500);
@@ -103,14 +108,14 @@ $(function(){
   })
 
   $('.fetty').on('click', function(){
-    playSong(trapQueen, 225);
+    playSong(trapQueen, 105);
   })
 
   $('.beyonce').on('click', function(){
     playSong(partition, 400);
   })
 
-  $('.taylor').on('click', function(){
-    playSong(blankSpace, 300);
+  $('.rainbow').on('click', function(){
+    playSong(rainbow, 200);
   })
 });
