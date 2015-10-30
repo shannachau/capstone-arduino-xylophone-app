@@ -15,10 +15,11 @@ ol {
 
 i {
   color: #757575;
+  cursor: pointer;
 }
 
 a h3, a h5 {
-  color: black;
+  color: #000000;
 }
 
 .volume {
@@ -41,7 +42,7 @@ a h3, a h5 {
 
 .button-collapse .material-icons {
   padding-top: 20px;
-  color: black;
+  color: #000000;
 }
 
 .btn.key {
